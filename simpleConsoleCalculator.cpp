@@ -6,11 +6,13 @@
 #include <string>
 
 using namespace std;
-int main()
-{
+int main()                            // For basic if-else chains you can substitute with a more efficient switch case
+{                                     //For a less clunky UI you should use strings and extract operators and numbers from that string
     double x, y;
     char op;
-
+    int result=0;   //Moved variable up since they are still in the same scope and might as well be together
+    
+    
     cout << "Enter first number: ";
     cin >> x;
     cout << "Enter operator: ";
@@ -18,21 +20,23 @@ int main()
     cout << "Enter second  number: ";
     cin >> y;
 
-    int result;
-
-    if (op == '+') {
+   switch(op) {
+       case '+':
         result = x + y;
-    }
-    else if (op == '-') {
+      break;
+       case '-': 
         result = x - y;
-    }
-    else if (op == '*') {
+      break;
+       case '*': 
         result = x * y;
-    }
-    else if (op == '/') {
+      break;
+       case '/':
         result = x / y;
-    }
-    else { cout << "Invalid Operation"; };
+      break;
+       default:
+           cout<<"Invalid operator"<<endl;
+   } //end switch-case
+   
 
     cout << result;
 }
